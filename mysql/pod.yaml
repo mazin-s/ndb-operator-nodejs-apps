@@ -10,13 +10,13 @@ spec:
     image: mazins/ndb-operator-mysql:latest
     env:
     - name: DBHOST 
-      value: <db-name>-svc        
+      value: <db-name>-svc    
+    - name: DBPORT
+      value: '3306'    
     - name: DATABASE
       value: database_one         
-    - name: DBPORT
-      value: '3306'
     - name: USERNAME
-      value: root     
+      value: root # use 'root'
     - name: PASSWORD
       valueFrom:
         secretKeyRef:
