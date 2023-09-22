@@ -22,7 +22,7 @@ spec:
     - name: PASSWORD
       valueFrom:
         secretKeyRef:
-          name: db-instance-secret-name
+          name: db-instance-secret-name   # CHANGE  
           key: password 
     ports:
     - containerPort: 3000
