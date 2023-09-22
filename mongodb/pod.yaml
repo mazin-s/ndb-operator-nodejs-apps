@@ -9,18 +9,18 @@ spec:
   - name: app-mssql-container
     image: mazins/ndb-operator-mssql:latest
     env:
-    - name: DBHOST 
-      value: <db-name>-svc       
+    - name: DBHOST                              
+      value: <db-name>-svc                   # CHANGE
     - name: DBPORT
-      value: "80"
+      value: "80"                            # CHANGE
     - name: DATABASE
-      value: database_one         
+      value: database_one                    # CHANGE 
     - name: USERNAME
-      value: admin # use 'admin'        
+      value: admin                           # CHANGE. Use 'admin'
     - name: PASSWORD
       valueFrom:
         secretKeyRef:
-          name: db-instance-secret-name
+          name: db-instance-secret-name      # CHANGE
           key: password 
     ports:
     - containerPort: 3000
@@ -30,4 +30,4 @@ spec:
       command: ['sh', '-c', "until nslookup $(DB_HOST).$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for $(DB_HOST); sleep 2; done"]
       env:
       - name: DB_HOST 
-        value: <db-name>-svc     
+        value: <db-name>-svc                 # CHANGE

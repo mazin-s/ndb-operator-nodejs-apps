@@ -10,17 +10,17 @@ spec:
     image: mazins/ndb-operator-mysql:latest
     env:
     - name: DBHOST 
-      value: <db-name>-svc    
+      value: <db-name>-svc                 # CHANGE
     - name: DBPORT
-      value: '3306'    
+      value: '3306'                        # CHANGE
     - name: DATABASE
-      value: database_one         
+      value: database_one                  # CHANGE       
     - name: USERNAME
-      value: root # use 'root'
+      value: root                          # CHANGE. Use 'root'
     - name: PASSWORD
       valueFrom:
         secretKeyRef:
-          name: db-instance-secret-name
+          name: db-instance-secret-name    # CHANGE      
           key: password 
     ports:
     - containerPort: 3000
@@ -30,4 +30,4 @@ spec:
       command: ['sh', '-c', "until nslookup $(DB_HOST).$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for $(DB_HOST); sleep 2; done"]
       env:
       - name: DB_HOST 
-        value: <db-name>-svc     
+        value: <db-name>-svc               # CHANGE      
