@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app-mssql-si
+  name: app-mongo-si
   labels:
-    app: app-mssql-si
+    app: app-mongo-si
 spec:
   containers:
-  - name: app-mssql-container
-    image: mazins/ndb-operator-mssql:latest
+  - name: app-mongo-container
+    image: mazins/ndb-operator-mongodb:latest
     env:
     - name: DBHOST                              
       value: <db-name>-svc                   # CHANGE
