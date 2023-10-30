@@ -18,7 +18,7 @@ spec:
     - name: MSSQL_INSTANCE_NAME
       value: CDMINSTANCE                  # CHANGE 
     - name: USERNAME
-      value: Administrator                # CHANGE. Use 'Administrator' or 'sa'
+      value: Administrator                # CHANGE. Default: 'Administrator' or 'sa'
     - name: PASSWORD
       valueFrom:
         secretKeyRef:

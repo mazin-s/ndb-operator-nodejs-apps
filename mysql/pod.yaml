@@ -16,7 +16,7 @@ spec:
     - name: DATABASE
       value: database_one                  # CHANGE       
     - name: USERNAME
-      value: root                          # CHANGE. Use 'root'
+      value: root                          # CHANGE. Default: 'root'
     - name: PASSWORD
       valueFrom:
         secretKeyRef:
