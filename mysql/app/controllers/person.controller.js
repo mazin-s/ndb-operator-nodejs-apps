@@ -12,8 +12,12 @@ exports.create = async(req, res) => {
 
 exports.read = async(req, res) => {
   const persons = await Person.read();
-  const array = persons.map(p => p.name); 
-  res.status(200).send(`"Ok. Retrieved entries: ${array}`)
+  if (persons == null) {
+    res.status(200).send("Ok. Retrieved entries")
+  } else {
+    const array = persons.map(p => p.name); 
+    res.status(200).send(`"Ok. Retrieved entries: ${array}`)
+  }
 }
 
 exports.update = async(req, res) => {
